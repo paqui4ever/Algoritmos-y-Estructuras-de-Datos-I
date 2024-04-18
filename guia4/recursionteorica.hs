@@ -15,3 +15,8 @@ suma2 x = suma2(x-1) + x
 numberOfPaths :: Integer -> Integer -> Integer --Dado un grid de n x m, dar el número de paths posibles para llegar desde arriba a la izquierda hasta abajo a la derecha con solo movimientos para abajo y a la derecha
 numberOfPaths n m | n == 1 || m == 1 = 1
                   | otherwise = (numberOfPaths (n-1) m) + (numberOfPaths n (m-1))
+
+numberOfPartitions :: Int -> Int-> Int
+numberOfPartitions n m | n==0 = 1
+                       | m==0 = 0
+                       | otherwise = numberOfPartitions n (m-1) + numberOfPartitions (n-m) m
