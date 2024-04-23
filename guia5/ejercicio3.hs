@@ -15,7 +15,8 @@ minimo (x:y:xs) | x<y = minimo (x:xs)
 
 ordenar :: [Integer] -> [Integer]
 ordenar [] = []
-ordenar xs = minimo xs : ordenar (quitar (minimo xs) xs)
+ordenar [x] = [x]
+ordenar xs = minimo xs : ordenar (quitar (minimo xs) xs) --Tomo lista con mas de un elemento ya que ya tengo un caso base con una lista de un solo elemento
 
 --ordenar [3,2,1,0,8] => 3 > 2 => quitar 3 => quitar x de [3,2,1,0,8]
 --                       2 < 1 => quitar 2 => quitar x de [2,1,0,8]
