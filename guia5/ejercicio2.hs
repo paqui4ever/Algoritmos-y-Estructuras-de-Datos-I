@@ -38,4 +38,17 @@ eliminarRepetidos [x] = [x]
 eliminarRepetidos (y:x:xs) | y == x = quitarTodos y (x:xs)
                            | otherwise = y : eliminarRepetidos xs
 
+mismosElementos :: (Eq t) => [t] -> [t] -> Bool
+mismosElementos [] [] = True
+mismosElementos (x:xs) (y:ys) | x == y = True
+                              | otherwise = mismosElementos xs ys
 
+minimo :: [Integer]->Integer 
+minimo [x] = x
+minimo (x:y:xs) | x<y = minimo (x:xs)
+                | otherwise = minimo (y:xs)
+
+ordenar :: [Integer] -> [Integer]
+ordenar [] = []
+ordenar [x] = [x]
+ordenar xs = minimo xs : ordenar (quitar (minimo xs) xs)
