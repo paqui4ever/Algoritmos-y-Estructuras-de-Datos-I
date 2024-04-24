@@ -40,8 +40,34 @@ eliminarRepetidos (y:x:xs) | y == x = quitarTodos y (x:xs)
 
 mismosElementos :: (Eq t) => [t] -> [t] -> Bool
 mismosElementos [] [] = True
-mismosElementos (x:xs) (y:ys) | x == y = True
-                              | otherwise = mismosElementos xs ys
+mismosElementos (x:xs) (y:ys) | x == y = mismosElementos xs ys
+                              | otherwise = False
+
+-- mismosElementos [1,2,3] [1,2,3] = 1=1? 2=2? 3=3?
+
+capicua :: (Eq t) => [t] -> Bool
+capicua [] = True
+capicua (x:xs) | reverso (x:xs) == (x:xs) = True
+               | otherwise = False
+
+-- capicua [1,0,1] => reverso [1,0,1] = [1,0,1] => reverso (x:xs) == (x:xs)
+
+reverso :: [t] -> [t]
+reverso [] = []
+reverso xs = ultimo xs : reverso (principio xs)
+
+principio :: [t] -> [t]
+principio (x:xs) | longitud xs == 0 = []
+                 | otherwise = x : principio xs
+
+ultimo :: [t] -> t 
+ultimo (x:xs) | longitud xs < 1 = x
+              | otherwise = ultimo xs
+
+longitud :: [t] -> Integer
+longitud [] = 0
+longitud (_:xs) = longitud xs + 1
+
 
 minimo :: [Integer]->Integer 
 minimo [x] = x
