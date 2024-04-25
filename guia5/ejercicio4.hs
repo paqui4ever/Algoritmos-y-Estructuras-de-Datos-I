@@ -42,11 +42,10 @@ palabraIndividual (x:xs) | head (sacarBlancosRepetidos (x:xs)) == ' ' = []
 
 palabraMasLarga :: [Char] -> [Char]
 palabraMasLarga [] = []
-palabraMasLarga (y:x:xs) | y /= ' ' = contadorDeCaracteres (y:xs)
-                         | otherwise = contadorDeCaracteres (x:xs)
+palabraMasLarga (y:x:xs) | y /= ' ' = 
 
 -- palabraMasLarga ['h','h','l', ' ', 'm', 'm', ' ', 'z']
--- contadorDeCaracteres ['h','h','l',''] 
+-- contadorDeCaracteres ['h','h','l',''] = 3
 
 contadorDeCaracteres :: [Char] -> Integer
 contadorDeCaracteres [] = 0
