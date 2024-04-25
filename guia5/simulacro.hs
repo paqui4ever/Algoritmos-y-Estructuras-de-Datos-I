@@ -28,10 +28,10 @@ extraerElementosDeTuplas :: (String, String) -> [String] -- Funcion que no termi
 extraerElementosDeTuplas (x,y) = fst (x,y) : [snd (x,y)]
 
 amigosDeV1 :: String -> [(String, String)] -> [String] -- Version inicial de la función, no funciona del todo bien
-amigosDe _ [] = []
-amigosDe "Nadie" [x] = ["Nadie"]
-amigosDe n (x:xs) | elementoEnLaLista n (extraerElementosDeTuplas x) == True = quitar n (extraerElementosDeTuplas x)
-                  | otherwise = amigosDe n xs
+amigosDeV1 _ [] = []
+amigosDeV1 "Nadie" [x] = ["Nadie"]
+amigosDeV1 n (x:xs) | elementoEnLaLista n (extraerElementosDeTuplas x) == True = quitar n (extraerElementosDeTuplas x)
+                    | otherwise = amigosDeV1 n xs
 
 amigosDeV2 :: String -> [(String, String)] -> [String] -- Version definitiva de la funcion amigosDe
 amigosDeV2 _ [] = []
@@ -51,6 +51,17 @@ quitar :: (Eq t) => t -> [t] -> [t]
 quitar y (x:xs) | y == x = xs
                 | otherwise = x : quitar y xs 
 
---personaConMasAmigos :: [(String, String)] -> String
+personaConMasAmigos :: [(String, String)] -> String
+personaConMasAmigos [] = "Nadie"
+personaConMasAmigos (x:xs) = elementoConMasApariciones xs
 
+elementoConMasApariciones :: [(String, String)] -> String
+elementoConMasApariciones [] = "Nadie"
+elementoConMasApariciones ((x,y):xs) | contadorDeApariciones x (extraerElementosDeTuplas (x,y)) > contadorDeApariciones y (extraerElementosDeTuplas (x,y)) = x
+                                     | otherwise = y
+
+contadorDeApariciones :: String -> [String] -> Integer
+contadorDeApariciones _ [] = 0
+contadorDeApariciones n (x:xs) | n == x = 1 + contadorDeApariciones n xs
+                               | otherwise = contadorDeApariciones n xs
 
