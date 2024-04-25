@@ -51,7 +51,7 @@ quitar :: (Eq t) => t -> [t] -> [t]
 quitar y (x:xs) | y == x = xs
                 | otherwise = x : quitar y xs 
 
-personaConMasAmigos :: [(String, String)] -> String
+personaConMasAmigos :: [(String, String)] -> String -- Tengo que corregirla
 personaConMasAmigos [] = "Nadie"
 personaConMasAmigos (x:xs) = elementoConMasApariciones xs
 
