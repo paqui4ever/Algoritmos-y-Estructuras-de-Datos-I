@@ -53,15 +53,33 @@ quitar y (x:xs) | y == x = xs
 
 personaConMasAmigos :: [(String, String)] -> String -- Tengo que corregirla
 personaConMasAmigos [] = "Nadie"
-personaConMasAmigos (x:xs) = elementoConMasApariciones xs
+personaConMasAmigos (x:xs) = fst (tuplaMax (x:xs) (x:xs))
 
+personaApariciones :: String -> [(String, String)] -> (String, Integer)
+personaApariciones n (x:xs) = (n, longitud (amigosDeV2 n (x:xs)))
+    where longitud :: [String] -> Integer
+          longitud [] = 0
+          longitud (x:xs) = 1 + longitud xs 
+
+comparacionPersonaApariciones :: (String, Integer) -> (String, Integer) -> (String, Integer)
+comparacionPersonaApariciones (x,y) (n,m) | y >= m = (x,y)
+                                          | otherwise = (n,m)
+
+tuplaMax :: [(String, String)] -> [(String, String)] -> (String, Integer)
+tuplaMax [(x,y)] n = (comparacionPersonaApariciones (personaApariciones x n) (personaApariciones y n))
+tuplaMax ((x,y):xs) n = (comparacionPersonaApariciones (comparacionPersonaApariciones (personaApariciones x n) (personaApariciones y n))) (tuplaMax xs n)
+
+-- Funciones que pensaba usar para resolver personaConMasAmigos pero no sirvieron
 elementoConMasApariciones :: [(String, String)] -> String
 elementoConMasApariciones [] = "Nadie"
-elementoConMasApariciones ((x,y):xs) | contadorDeApariciones x (extraerElementosDeTuplas (x,y)) > contadorDeApariciones y (extraerElementosDeTuplas (x,y)) = x
-                                     | otherwise = y
+elementoConMasApariciones ((x,y):(n,m):xs) | contadorDeApariciones x (extraerElementosDeTuplas (x,y)) > contadorDeApariciones n (extraerElementosDeTuplas (n,m)) = x
+                                           | contadorDeApariciones y (extraerElementosDeTuplas (x,y)) > contadorDeApariciones m (extraerElementosDeTuplas (n,m)) = y
+                                           | otherwise = elementoConMasApariciones xs
 
 contadorDeApariciones :: String -> [String] -> Integer
 contadorDeApariciones _ [] = 0
 contadorDeApariciones n (x:xs) | n == x = 1 + contadorDeApariciones n xs
                                | otherwise = contadorDeApariciones n xs
+
+-- personaConMasAmigos [("Juan", "Pedro"), ("Pepe", "Roman"), ("Pedro", "Tomas")] = Pedro
 
