@@ -51,7 +51,7 @@ quitar :: (Eq t) => t -> [t] -> [t]
 quitar y (x:xs) | y == x = xs
                 | otherwise = x : quitar y xs 
 
-personaConMasAmigos :: [(String, String)] -> String -- Tengo que corregirla
+personaConMasAmigos :: [(String, String)] -> String 
 personaConMasAmigos [] = "Nadie"
 personaConMasAmigos (x:xs) = fst (tuplaMax (x:xs) (x:xs))
 
