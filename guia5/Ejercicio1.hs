@@ -1,3 +1,5 @@
+module Ejercicio1 where 
+
 longitud :: [t] -> Integer
 longitud [] = 0
 longitud (_:xs) = longitud xs + 1
