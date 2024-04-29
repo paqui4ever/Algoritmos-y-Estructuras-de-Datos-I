@@ -42,12 +42,52 @@ palabraIndividual (x:xs) | head (sacarBlancosRepetidos (x:xs)) == ' ' = []
 
 palabraMasLarga :: [Char] -> [Char]
 palabraMasLarga [] = []
-palabraMasLarga (y:x:xs) | y /= ' ' = 
-
+--palabraMasLarga (x:xs)  
 -- palabraMasLarga ['h','h','l', ' ', 'm', 'm', ' ', 'z']
 -- contadorDeCaracteres ['h','h','l',''] = 3
+
+devolverPalabra :: [Char] -> String
+devolverPalabra [] = []
+devolverPalabra (x:xs) = x : devolverPalabra xs
 
 contadorDeCaracteres :: [Char] -> Integer
 contadorDeCaracteres [] = 0
 contadorDeCaracteres (x:xs) | x /= ' ' = 1 + contadorDeCaracteres xs
                             | otherwise = contadorDeCaracteres xs
+
+
+aplanar :: [[Char]] -> [Char]
+aplanar [] = []
+aplanar [[x]] = [x]
+aplanar (x:xs) = x ++ aplanar xs --Uso el ++ para concatenar listas
+
+-- aplanar [['h','o','l','a'], ['j','u','a','n']] = "holajuan"
+
+aplanarConBlancos :: [[Char]] -> [Char]
+aplanarConBlancos [] = []
+aplanarConBlancos (x:[]) = x ++ [] -- concateno el head a una lista vacia
+aplanarConBlancos (x:xs) = (x ++ " ") ++ aplanarConBlancos xs --concateno el head a un espacio en blanco y a eso lo concateno al resto del resultado de la funcion
+
+-- aplanarConBlancos [['h','i'], ['m','a','r']] = "hi mar"
+
+aplanarConNBlancos :: [[Char]] -> Integer -> [Char]
+aplanarConNBlancos [] n = []
+aplanarConNBlancos [x] 0 = aplanar [x]
+aplanarConNBlancos [x] 1 = aplanarConBlancos [x]
+aplanarConNBlancos (x:xs) n | longitud xs >= 1 = (x ++ ponerEspaciosEnBlanco n) ++ aplanarConNBlancos xs n
+                            | otherwise = x ++ aplanarConNBlancos xs 0
+
+ponerEspaciosEnBlanco :: Integer -> [Char]
+ponerEspaciosEnBlanco 0 = ""
+ponerEspaciosEnBlanco 1 = " "
+ponerEspaciosEnBlanco n = " " ++ ponerEspaciosEnBlanco (n-1)
+
+-- ponerEspaciosEnBlanco 3 = [" ", " ", " "]
+-- ponerEspaciosEnBlanco 2 = [" ", " "]
+-- ponerEspaciosEnBlanco 1= [" "]
+
+longitud :: [t] -> Integer
+longitud [] = 0
+longitud (_:xs) = longitud xs + 1
+
+
