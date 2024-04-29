@@ -10,7 +10,7 @@ comparacionEntreTuplas :: (String, String) -> (String, String) -> Bool
 comparacionEntreTuplas (x,y) (n,m) = (x == n || x == m) && (y == n || y == m)
 
 personas :: [(String, String)] -> [String]
-personas [] = ["Nadie"]
+personas [] = []
 personas [(x,y)] = [x,y]
 personas (x:y:xs) = quitarIguales(fst x : snd x : personas (y:xs))
 
@@ -52,7 +52,7 @@ quitar y (x:xs) | y == x = xs
                 | otherwise = x : quitar y xs 
 
 personaConMasAmigos :: [(String, String)] -> String 
-personaConMasAmigos [] = "Nadie"
+personaConMasAmigos [] = " "
 personaConMasAmigos (x:xs) = fst (tuplaMax (x:xs) (x:xs))
 
 personaApariciones :: String -> [(String, String)] -> (String, Integer)
