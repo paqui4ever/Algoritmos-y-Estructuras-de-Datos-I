@@ -3,7 +3,7 @@
 
 -- EJERCICIO 1
 
-votosEnBlanco :: [(String, String)] -> [Integer] -> Integer -> Integer
+votosEnBlanco :: [(String, String)] -> [Integer] -> Integer -> Integer -- A REVISAR
 votosEnBlanco [] _ _ = 0
 votosEnBlanco _ [] _ = 0
 votosEnBlanco _ _ 0 = 0
