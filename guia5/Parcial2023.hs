@@ -3,14 +3,13 @@
 
 -- EJERCICIO 1
 
-votosEnBlanco :: [(String, String)] -> [Integer] -> Integer -> Integer -- A REVISAR
+votosEnBlanco :: [(String, String)] -> [Integer] -> Integer -> Integer 
 votosEnBlanco [] _ _ = 0
 votosEnBlanco _ [] _ = 0
 votosEnBlanco _ _ 0 = 0
-votosEnBlanco (x:xs) votos cantTotalVotos | (longitud (x:xs) == longitud votos) && (sumaDeListaDeNumeros votos <= cantTotalVotos) && (esListaDePositivos votos == True) = 0
-                                            | otherwise = sacarUltimoElemento votos
+votosEnBlanco (x:xs) votos cantTotalVotos = cantTotalVotos - (sumaDeListaDeNumeros votos)
 
-longitud :: [t] -> Integer
+longitud :: [t] -> Integer 
 longitud [] = 0
 longitud (x:xs) = 1 + longitud xs
 
@@ -18,12 +17,12 @@ sumaDeListaDeNumeros :: [Integer]-> Integer
 sumaDeListaDeNumeros [] = 0
 sumaDeListaDeNumeros (x:xs) = x + sumaDeListaDeNumeros xs
 
-sacarUltimoElemento :: [Integer] -> Integer
+sacarUltimoElemento :: [Integer] -> Integer -- Funcion que no usé
 sacarUltimoElemento [] = 0
 sacarUltimoElemento (x:xs) | longitud (x:xs) == 1 = x
                            | otherwise = sacarUltimoElemento xs
 
-esListaDePositivos :: [Integer] -> Bool
+esListaDePositivos :: [Integer] -> Bool -- Función que no usé
 esListaDePositivos [] = True
 esListaDePositivos (x:xs) | x >= 0 = esListaDePositivos xs
                           | otherwise = False
