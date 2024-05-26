@@ -62,5 +62,5 @@ def visitando_a_aristoteles (año_de_partida: int) -> str:
         if año_de_partida <= -384:
             print ("Ya esta con Aristoteles")
             break
-        
-visitando_a_aristoteles (2024)
+
+#visitando_a_aristoteles (2024)
