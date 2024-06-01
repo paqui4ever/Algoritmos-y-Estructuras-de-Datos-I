@@ -1,3 +1,5 @@
+import random
+
 # Ejercicio 1
 
 def construir_lista () -> list:
@@ -34,4 +36,49 @@ def historial_monedero () -> int:
     return historial
 
 #print(historial_monedero())
+
+# Ejercicio 3
+
+def cartas_crupier () -> float:
+    cartas = [1,2,3,4,5,6,7,10,11,12]
+    total_crupier = 0
+    while total_crupier < 5.5:
+        numero_crupier = random.choice(cartas)
+        if numero_crupier == 10 or numero_crupier  == 11 or numero_crupier  == 12:
+            total_crupier += 0.5
+        elif total_crupier > 7.5:
+            break
+        else:
+            total_crupier += 1
+    return total_crupier
+
+def siete_y_medio () -> list:
+    cartas = [1,2,3,4,5,6,7,10,11,12]
+    total = 0
+    historial = []
+    print ("Bienvenido al juego 7 y medio! Las cartas válidas van del 1 al 12 excluyendo el 8 y 9, todas las cartas menos las figuras suman 1 punto, ya que estas suma 0.5. Si se pasa de 7.5 pierde.")
+    while True:
+        carta = random.choice(cartas)
+        decision = input("Desea sacar otra carta? Escriba 'si' si es el caso, si desea plantarse escriba 'no': ")
+        if decision == "no":
+            historial.append(carta)
+            break
+        if decision == "si":
+            if carta == 10 or carta == 11 or carta == 12:
+                total += 0.5
+            else:
+                total += 1 
+            historial.append(carta)
+        if total > 7.5:
+            print("Ha perdido, su total se pasó de 7.5")
+            break
+    total_crupier = cartas_crupier()
+    if total_crupier < total and total < 7.5:
+        print("Ha ganado!")
+    else:
+        print("Ha perdido :(")
+    print (f"Su historial de cartas fue el siguiente: {historial} y su total de puntos fue {total} y el numero de la banca era {total_crupier}")
+
+
+# siete_y_medio()
 
