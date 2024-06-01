@@ -49,8 +49,8 @@ def suma_total (s: list) -> int:
 # Ejercicio 4
 
 def ordenados (s: list) -> bool:
-    for i in range (0, len(s), 1):
-        if s[i] > s[i+1]:   # Obligo a que compare con todos
+    for i in range (0, len(s), 1): #Tomo len(s)-1 como pide la especificacion
+        if s[i] > s[i+1]:   # Obligo a que compare con el anterior
             return False
     return True
 
