@@ -10,6 +10,8 @@ def n_pacientes_urgentes (c: Cola[(int,str,str)]) -> int:
         elemento = c.get()
         temp.put(elemento)
         prioridades.append(elemento[0])
+    while not temp.empty():
+        c.put(temp.get())
     prioridades_importantes: list[int] = filtrar_prioridades(prioridades)
     return contar_apariciones(prioridades_importantes)
     
