@@ -11,7 +11,7 @@ def cantidad_elementos(p: Pila) -> int:
     return contador
 
 m = Pila()
-for i in range (0, 4, 1):
+for i in range (5):
     m.put(i)
     
 #print(cantidad_elementos(m))

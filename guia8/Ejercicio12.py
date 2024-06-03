@@ -6,16 +6,16 @@ def evaluar_expresion (s: str) -> float:
     operadores: list = ["+", "-", "/", "*"]
     for token in tokens:
         if token in operadores:
-            operando2 = float(pila_operandos.get()) #IMPORTANTE: Sacar primero el segundo operando ya que sino la operacion termina "dada vuelta"
-            operando1 = float(pila_operandos.get())
+            operando2: float = float(pila_operandos.get()) #IMPORTANTE: Sacar primero el segundo operando ya que sino la operacion termina "dada vuelta"
+            operando1: float = float(pila_operandos.get())
             if token == "+":
-                res = operando1 + operando2
+                res: float = operando1 + operando2
             elif token == "-":
-                res = operando1 - operando2
+                res: float = operando1 - operando2
             elif token == "*":
-                res = operando1 * operando2
+                res: float = operando1 * operando2
             elif token == "/":
-                res = operando1 / operando2
+                res: float = operando1 / operando2
             
             pila_operandos.put(float(res))        
         else:
@@ -23,4 +23,4 @@ def evaluar_expresion (s: str) -> float:
     return pila_operandos.get()
 
             
-print(evaluar_expresion("3 4 + 5 * 2 -"))
+#print(evaluar_expresion("3 4 + 5 * 2 -"))

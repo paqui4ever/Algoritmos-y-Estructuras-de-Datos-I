@@ -1,7 +1,7 @@
 from queue import LifoQueue as Pila
 
 def esta_bien_balanceada (s: str) -> bool:
-    pila = Pila()
+    pila: Pila = Pila()
     for i in range (len(s)):
         if s[i] == '(': 
             pila.put(1) #Pongo un 1 en la pila indicando que hay un parentesis abierto

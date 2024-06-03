@@ -2,7 +2,7 @@ from queue import Queue as Cola
 
 def cantidad_elementos (c: Cola) -> int:
     temp: Cola = Cola()
-    contador = 0
+    contador: int = 0
     while not c.empty():
         temp.put(c.get())
         contador += 1
