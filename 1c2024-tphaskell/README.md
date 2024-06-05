@@ -1,3 +1,3 @@
 AVISO IMPORTANTE: El test de cifradoMasFrecuente en test-catedra fallaba pero usando la función expectAnyTuplaAprox (como en nuestros tests propios) los pasa con éxito.
 
-En este repositorio se encuentra el trabajo práctico de Introducción a la Programación (ex-AED1) del primer cuatrimestre de 2024. Los integrantes del grupo son: Goñi Matías, Picard Silvano, Katz Wald Manuel y Lanouguere Mailen. El proyecto fue realizado en conjunto en el repositorio TP-Legalicenla de Manuel Wald (@wald16) en GitHub, dejamos el log de commits de su github en el archivo Logs-github.txt.  
+En este repositorio se encuentra el trabajo práctico de Introducción a la Programación (ex-AED1) del primer cuatrimestre de 2024. El proyecto fue realizado en conjunto en el repositorio TP-Legalicenla de REDACTED en GitHub, dejamos el log de commits de su github en el archivo Logs-github.txt.  

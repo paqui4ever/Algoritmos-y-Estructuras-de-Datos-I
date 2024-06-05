@@ -2,10 +2,10 @@ module Solucion where
 import Data.Char
 
 -- Nombre de grupo: { Legalicenla }
--- Integrante1: { 46701432, Goñi Matías }
--- Integrante2: { 46700339, Picard Silvano }
--- Integrante3: { 46754527, Katz Wald Manuel }
--- Integrante4: { 30745692 , Mailen Lanouguere }
+-- Integrante1: { REDACTED , REDACTED }
+-- Integrante2: { REDACTED, REDACTED }
+-- Integrante3: { REDACTED, REDACTED }
+-- Integrante4: { REDACTED , REDACTED }
 -- Integrantes que abandonaron la materia: { }
 
 
