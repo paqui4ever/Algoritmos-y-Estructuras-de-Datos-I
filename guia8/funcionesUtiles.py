@@ -39,4 +39,14 @@ def split (string: str) -> list:
             
 #print(split("Tomas Juan"))
 
+def loopear_dict (diccionario: dict) -> str:
+    for palabra in diccionario:
+        print (palabra)
+
+diccionario = {
+    "nombre": "Silvano",
+    "edad": 19
+}
+   
+loopear_dict(diccionario) 
             
