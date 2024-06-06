@@ -45,8 +45,10 @@ def loopear_dict (diccionario: dict) -> str:
 
 diccionario = {
     "nombre": "Silvano",
-    "edad": 19
+    "edad": 19,
+    "universidad": "UBA"
 }
    
-loopear_dict(diccionario) 
+#loopear_dict(diccionario) 
             
+#print(diccionario.items())
