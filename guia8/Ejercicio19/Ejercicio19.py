@@ -19,7 +19,6 @@ def split (string: str) -> list:
 
     return palabras
 
-
 def agrupar_por_longitud (nombre_archivo: str) -> dict:
     archivo = open(nombre_archivo, "r")
     res: dict[int] = {}
