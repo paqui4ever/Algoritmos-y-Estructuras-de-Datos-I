@@ -1,15 +1,15 @@
 def calcular_promedio_por_estudiante (nombre_archivo_notas: str, nombre_archivo_promedios: str):
     archivo_notas = open(f"{nombre_archivo_notas}", "r")
     archivo_promedios = open(f"{nombre_archivo_promedios}", "w")
-    lineas_notas = archivo_notas.readlines()
-    lus = []
-    promedios = []
+    lineas_notas:list[str] = archivo_notas.readlines()
+    lus: list[str] = []
+    promedios: list[float] = []
     for linea in lineas_notas:
-        linea_limpia = split(linea)
+        linea_limpia: list[str] = split(linea)
         if linea_limpia[0] not in lus:
             lus.append(linea_limpia[0])
     for lu in lus:
-        promedio = promedio_estudiante(nombre_archivo_notas, lu)    
+        promedio: float = promedio_estudiante(nombre_archivo_notas, lu)    
         promedios.append(f"{lu}, {promedio}")
     for promedio in promedios:
         agregar_frase_al_final(nombre_archivo_promedios, promedio)
@@ -18,7 +18,7 @@ def calcular_promedio_por_estudiante (nombre_archivo_notas: str, nombre_archivo_
     
 def agregar_frase_al_final(nombre_archivo: str, frase: str):
     archivo = open(f"{nombre_archivo}", "r")
-    lineas = archivo.readlines()
+    lineas: list[str] = archivo.readlines()
     lineas.append(f"{frase}\n")
     archivo.close()
     archivo = open(f"{nombre_archivo}", "w")
@@ -26,18 +26,18 @@ def agregar_frase_al_final(nombre_archivo: str, frase: str):
     
 def promedio_estudiante (nombre_archivo:str, lu:str) -> float: 
     archivo = open(f"{nombre_archivo}", "r")
-    lineas = archivo.readlines()
-    notas = []
-    materias = 0
+    lineas: list[str] = archivo.readlines()
+    notas: list[float] = []
+    materias: int = 0
     for linea in lineas:
-        elementos = split(linea)
+        elementos: list[str] = split(linea)
         if lu == elementos[0]:
             notas.append(elementos[3])
             materias += 1
     return suma_lista(notas) / materias
 
 def suma_lista (lista: list[float]) -> float:
-    total = 0
+    total: int = 0
     for numero in lista:
         total += float(numero)
     return total
