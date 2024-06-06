@@ -1,3 +1,6 @@
+import numpy as np
+import random
+
 # Ejercicio 1
 
 def pertenece_a_cada_uno_version_1 (s: list, e: int) -> list:
@@ -61,5 +64,11 @@ def filas_ordenadas (m: list) -> list:
 
 #print(filas_ordenadas ([[1,2],[3,4],[5,6]]))
 
+# Ejercicio 5
 
+def matriz_elevada_a_p (d: int, p: int):
+    m = np.random.random((d, d))*np.random.random((d, d))
+    potencia = p * np.random.randint(-1000,1000)
+    return m* potencia
 
+print(matriz_elevada_a_p(3, 4))
