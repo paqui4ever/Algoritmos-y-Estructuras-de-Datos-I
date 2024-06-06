@@ -39,5 +39,18 @@ def calcular_valor_inventario (inventario: dict[str, dict[str,float,int]]) -> in
         total += precio * cantidad
     return total
 
+#print(inventario.items())
 #print(calcular_valor_inventario(inventario))
-        
+
+def agregar_producto2 (inventario: dict[str, dict[str,float,int]], nombre: str, precio: float, cantidad: int):
+    diccionario_interno: dict = {"nombre": f"{nombre}", "precio": precio, "cantidad": cantidad}
+    elementos = list(inventario.items())
+    elementos.append((nombre, diccionario_interno))
+    nuevo_inventario = dict(elementos)
+    inventario.clear()
+    inventario.update(nuevo_inventario)
+
+#print(agregar_producto2(inventario, "t", 12, 3))
+
+# def actualizar_stock2 (inventario: dict[str, dict[str,float,int]], nombre: str, cantidad: int): TODO
+    
