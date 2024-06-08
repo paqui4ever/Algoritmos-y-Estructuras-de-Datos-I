@@ -1,4 +1,3 @@
-"""
 1) Acomodar [2 puntos]
 El próximo 19 de Noviembre se realizará en Argentina la segunda vuelta de las
 elecciones presidenciales. En esta competirán solo 2 listas (Lista UP; Lista
@@ -112,4 +111,3 @@ naciones= ["arg", "aus", "nz", "sud"]
 torneos= {2023:["nz", "sud", "arg", "aus"], 2022:["nz", "sud", "aus", "arg"]}
 se debería devolver res = {"arg": [0,0,1,1], "aus": [0,0,1,1], "nz": [2,0,0,0],
 "sud": [0,2,0,0]}
-"""
