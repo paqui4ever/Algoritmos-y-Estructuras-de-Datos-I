@@ -91,7 +91,7 @@ def incrementar_ventas_en_5 (semana1, semana2):
 
 ventas_incrementadas = incrementar_ventas_en_5(semana_1, semana_2)
 
-def desviacion_standard_productos (semana1, semana2):
+def desviacion_standard_productos (semana1, semana2): # Mejorable
     producto_a = []
     producto_b = []
     producto_c = []
