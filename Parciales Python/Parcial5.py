@@ -80,18 +80,42 @@ def quien_gano_el_tateti_facilito (tablero: list[list[chr]]) -> int:
                 return 3
             
 def hay_consecutivas (tablero: list[list[str]]) -> bool:
-    for i in range(-2, len(tablero)-2):
-        for j in range(-2, len(tablero)-2):
+    for i in range(len(tablero)-2):
+        for j in range(len(tablero)-2):
             if tablero[i][j] == tablero[i+1][j] == tablero [i+2][j]:
                 return True
             elif tablero[i][j] == tablero[i+1][j] == tablero [i+2][j]:
                 return True
     return False
 
+def quien_gano_el_tateti_facilito2 (tablero: list[list[chr]]) -> int:
+    res = 0
+    for columna in range (len(tablero)):
+        cantidad_X_seguidas = 0
+        cantidad_O_seguidas = 0
+        
+        for fila in range (len(tablero)):
+            elemento = tablero[fila][columna]
+            
+            if elemento == "X":
+                cantidad_X_seguidas += 1
+                cantidad_O_seguidas = 0 # reseteo la variable para que no siga sumando Os desde un num distinto de 0
+                if cantidad_X_seguidas >= 3: # Gano la X
+                    res += 1
+            elif elemento == "O":
+                cantidad_X_seguidas = 0 # reseteo la variable para que no siga suman Xs desde un num distinto de 0
+                cantidad_O_seguidas += 1 
+                if cantidad_O_seguidas >= 3: # Gano la O
+                    res += 2
+            
+    return res
+
+
 #print(hay_consecutivas([["O", "X", "O", "X"], ["O", "X", "X", "O"], ["X", "X", "O", "X"], ["X", "O", "X", "O"]]))
 
-tablero = [["O", "X", "O", "X", "O"], ["X", "O", "X", "O", "X"], ["O", "X", "O", "X", "O"], ["O", "O", "X", "O", "X"], ["O", "X", "O", "X", "O"]]
-#print(quien_gano_el_tateti_facilito(tablero))
+tablero = [["O", "X", "O", "X", "O"], ["X", "O", "X", "O", "X"], ["O", "X", "O", "X", "O"], ["O", "O", "X", "O", "X"], ["X", "X", "O", "X", "O"]]
+print(quien_gano_el_tateti_facilito(tablero))
+print(quien_gano_el_tateti_facilito2(tablero))
 
 # Ejercicio 4
 
