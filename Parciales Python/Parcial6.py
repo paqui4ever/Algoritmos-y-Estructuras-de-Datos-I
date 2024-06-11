@@ -110,8 +110,9 @@ def un_responsable_por_turno (grilla_horaria: list[list[str]]) -> list[tuple[boo
     for columna in range (len(grilla_horaria[0])):
         iguales_mañana = True
         iguales_tarde = True
-        persona_mañana = grilla_horaria[0][columna] # Divido a la matriz en 2, mañana y tarde
-        persona_tarde = grilla_horaria[4][columna]
+        # Divido a la matriz en 2, mañana y tarde
+        persona_mañana = grilla_horaria[0][columna] # Agarro elementos de la lista para comparar, si no lo cumple con uno ya tengo que el primer elemento de la tupla es False
+        persona_tarde = grilla_horaria[4][columna] # Lo mismo para la segunda parte de la matriz
         for fila in range(len(grilla_horaria)):
             persona_actual = grilla_horaria[fila][columna]
             if persona_actual != persona_mañana and fila < 4:

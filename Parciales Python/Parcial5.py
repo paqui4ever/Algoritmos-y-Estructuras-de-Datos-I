@@ -88,7 +88,7 @@ def hay_consecutivas (tablero: list[list[str]]) -> bool:
                 return True
     return False
 
-def quien_gano_el_tateti_facilito2 (tablero: list[list[chr]]) -> int:
+def quien_gano_el_tateti_facilito2 (tablero: list[list[chr]]) -> int: # Forma permitida de hacer el ejercicio
     res = 0
     for columna in range (len(tablero)):
         cantidad_X_seguidas = 0
@@ -107,6 +107,8 @@ def quien_gano_el_tateti_facilito2 (tablero: list[list[chr]]) -> int:
                 cantidad_O_seguidas += 1 
                 if cantidad_O_seguidas >= 3: # Gano la O
                     res += 2
+            elif cantidad_O_seguidas == cantidad_X_seguidas:
+                res += 3
             
     return res
 
@@ -127,7 +129,7 @@ def cuantos_sufijos_son_palindromos (texto: str) -> int:
         for i in range (len(palabra_partida)):
             if es_palindromo(palabra_partida):
                 contador += 1
-            palabra_partida.pop()
+            palabra_partida.pop() # Clave en este ejercicio para poder sacar el primer elemento de la lista de chars
     return contador 
     
 def es_palindromo (sufijo: list[chr]) -> bool:
